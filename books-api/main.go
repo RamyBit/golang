@@ -24,5 +24,7 @@ func getBooks(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, books)
 }
 func main() {
-
+	router := gin.Default()
+	router.GET("/books", getBooks)
+	router.Run("localhost:8080")
 }
