@@ -13,7 +13,11 @@ type T struct {
 }
 
 func (t *T) M() {
-	println(t.S)
+	if t == nil {
+		fmt.Println("<nil>")
+		return
+	}
+	fmt.Println(t.S)
 }
 
 type F float64
@@ -23,6 +27,10 @@ func (f F) M() {
 }
 func main() {
 	var i I
+	var t *T
+	i = t
+	describe(i)
+	i.M()
 	i = &T{"Hello, World!"}
 	describe(i)
 	i.M()
